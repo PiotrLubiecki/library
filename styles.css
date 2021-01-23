@@ -15,7 +15,7 @@ header {
     justify-content: flex-end;
 }
 
-p {
+#header-title {
     position: absolute;
     left: 10%;
     font-size: 42px;
@@ -38,33 +38,81 @@ p {
 }
 
 #add-book {
+    width: 450px;
+    height: 240px;
     position: absolute;
     top: 70px;
     right: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: green;
-    width: 340px;
-    height: 170px;
+    background-color: #10375c;
+    color: #f3ecb8;
+    font-size: 18px;
 }
 
 form {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    height: 170px;
+    line-height: 30px;
+    margin-top: 10px;
+}
+
+.form-div {
+    height: 35px;
+    display: flex;
+    flex-direction: row;
 }
 
 input {
-    width: 45%;
+    width: 250px;
+    height: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 label {
-    width: 45%;
+    width: 160px;
+    height: 30px;
+    margin-left: 10px;
+}
+
+#add-book p {
+    margin-left: 10px;
+}
+
+#radio-buttons {
+    display: flex;
+    flex-direction: row;
+    width: 120px;
+    flex-wrap: wrap;
+    margin-left: 20px;
+}
+
+input[type="radio"] {
+    height: 10px;
+    width: 5px;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+.radio-label {
+    width: 60px;
 }
 
 #submit-button {
-    width: 100px;
-    height: 50px;
-    align-self: flex-end;
+    width: 100%;
+    height: 70px;
+    font-size: 22px;
+    background-color: #f3c623;
+    border-color: #f3c623;
+    border-style: solid;
+    color: #10375c;
 }
+
+#submit-button:hover {
+    font-size: 26px;
+}
+
