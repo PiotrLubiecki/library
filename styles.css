@@ -1,9 +1,20 @@
+
 html, body {
     margin: 0;
     padding: 0;
-    background-color: red;
+    background-image: linear-gradient(#202060, #16c79a);
     width: 100%;
+    height: max-content;
+    min-height: 100vh;
     font-family: 'Times New Roman', Times, serif;
+}
+
+html {
+    overflow: auto;
+}
+
+body {
+    overflow: hidden;
 }
 
 header {
@@ -26,7 +37,7 @@ header {
 #new-book{
     width: 180px;
     font-size: 28px;
-    background-image: linear-gradient(120deg, #602080, #d7385e);
+    background-image: linear-gradient(120deg, #45175c, #202060);
     border: none;
     color: #e1ccec;
 }
@@ -34,7 +45,7 @@ header {
 #new-book:hover{
     color: white;
     font-size: 32px;
-    background-image: linear-gradient(60deg, #d7385e, #602080);
+    background-image: linear-gradient(60deg, #202060, #45175c);
 }
 
 #add-book {
@@ -46,9 +57,11 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: #10375c;
+    background-color: #202060;
     color: #f3ecb8;
     font-size: 18px;
+    z-index: 1;
+    visibility: hidden;
 }
 
 form {
@@ -106,13 +119,78 @@ input[type="radio"] {
     width: 100%;
     height: 70px;
     font-size: 22px;
-    background-color: #f3c623;
-    border-color: #f3c623;
-    border-style: solid;
-    color: #10375c;
+    background-image: linear-gradient(120deg, #45175c, #202060);
+    border: none;
+    border-top: solid 2px #f3ecb8;
+    color: #f3ecb8;
 }
 
 #submit-button:hover {
     font-size: 26px;
+    background-image: linear-gradient(60deg, #202060, #45175c);
+}
+
+#bookshelf {
+    width: 90%;
+    height: max-content;
+    min-height: 80vh;
+    position: relative;
+    left: 50%;
+    top: 20px;
+    z-index: 0;
+    transform: translateX(-50%);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.book {
+    height: 260px;
+    width: 200px;
+    background-color: #f4f5db;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    font-size: 16px;
+    border: solid 5px #931a25;
+    margin-right: 30px;
+    margin-bottom: 30px;
+}
+
+.book p {
+    line-height: 34px;
+    width: 80%;
+    text-align: center;
+    margin: 10px;
+    border-bottom: solid 1px;
+}
+
+.delete-book {
+    height: 35px;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    padding-top: 5px;
+    color: white;
+    background-color: #931a25;
+    border: solid 1px #931a25;
+}
+
+.delete-book:hover {
+    background-color: #cd0a0a;
+    border: solid 1px #cd0a0a;
+}
+
+p[atribute="book-not-read"] {
+    color: #ec0101;
+    border-color: black;
+}
+
+p[atribute="book-read"] {
+    color: #5aa469;
+    border-color: black;
 }
 
