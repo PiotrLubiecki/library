@@ -25,7 +25,7 @@
                 </div>
                 <div class="form-div">
                     <label for="add-book-pages">Number of pages:</label><br>
-                    <input type="text" id="add-book-pages" name="add-book-pages"><br>
+                    <input type="number" id="add-book-pages" name="add-book-pages"><br>
                 </div> 
                 <p>Have you read the book?</p>
                 <div id="radio-buttons" class="form-div"> 
@@ -36,6 +36,22 @@
                 </div>
             </form>
             <button type="submit" id="submit-button">Add to the library</button>
+        </div>
+        <div id="bookshelf">
+            <div class="book">
+                <p>Hobbit</p>
+                <p>Tolkien</p>
+                <p>245 pages</p>
+                <p atribute="book-not-read"><icon class="material-icons">close</icon></p>
+                <button type="button" class="delete-book"><icon class="material-icons">delete</icon></button>
+            </div>
+            <div class="book">
+                <p>Hobbit</p>
+                <p>Tolkien</p>
+                <p>245 pages</p>
+                <p atribute="book-read"><icon class="material-icons">check</icon></p>
+                <button type="button" class="delete-book"><icon class="material-icons">delete</icon></button>
+            </div>
         </div>
         <script src="library.js"></script>    
     </body>
