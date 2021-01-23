@@ -1,0 +1,70 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: red;
+    width: 100%;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+header {
+    background-image: linear-gradient(120deg, #602080, #202060, #602080 60%);
+    color: #e1ccec;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+p {
+    position: absolute;
+    left: 10%;
+    font-size: 42px;
+    line-height: 60px;
+    margin: auto;
+}
+
+#new-book{
+    width: 180px;
+    font-size: 28px;
+    background-image: linear-gradient(120deg, #602080, #d7385e);
+    border: none;
+    color: #e1ccec;
+}
+
+#new-book:hover{
+    color: white;
+    font-size: 32px;
+    background-image: linear-gradient(60deg, #d7385e, #602080);
+}
+
+#add-book {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: green;
+    width: 340px;
+    height: 170px;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+input {
+    width: 45%;
+}
+
+label {
+    width: 45%;
+}
+
+#submit-button {
+    width: 100px;
+    height: 50px;
+    align-self: flex-end;
+}
