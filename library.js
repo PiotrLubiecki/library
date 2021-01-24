@@ -144,6 +144,9 @@ function saveLocalStorage() {
 
 function loadLocalStorage() {
     myLibrary = JSON.parse(localStorage.getItem("myLibrary"));
+    if (myLibrary === null){
+        myLibrary = [];
+    }
     displayLibrary(myLibrary);
 }
 
