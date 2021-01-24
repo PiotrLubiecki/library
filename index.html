@@ -11,31 +11,34 @@
     <body>
         <header>
             <p id=header-title>The Library</p>
-            <button type="button" id="new-book">New book</button>
+            <button type="button" id="new-book-button">New book</button>
         </header>
-        <div id="add-book">
-            <form>
-                <div class="form-div">
-                    <label for="add-book-title">Title:</label><br>
-                    <input type="text" id="add-book-title" name="add-book-title"><br>
-                </div>
-                <div class="form-div">
-                    <label for="add-book-author">Author:</label><br>
-                    <input type="text" id="add-book-author" name="add-book-author"><br>
-                </div>
-                <div class="form-div">
-                    <label for="add-book-pages">Number of pages:</label><br>
-                    <input type="number" id="add-book-pages" name="add-book-pages"><br>
-                </div> 
-                <p>Have you read the book?</p>
-                <div id="radio-buttons" class="form-div"> 
-                    <input type="radio" id="read" name="read-status" value="read">
-                    <label class="radio-label" for="read">Yes</label>
-                    <input type="radio" id="not-read" name="read-status" value="not-read">
-                    <label class="radio-label" for="not-read">No</label><br>
-                </div>
-            </form>
-            <button type="submit" id="submit-button">Add to the library</button>
+        <div id="add-book-form">
+            <button type="button" id="hide-button">Hide</button>
+            <div id="submit-book-form">
+                <form>
+                    <div class="form-div">
+                        <label for="add-book-title">Title:</label><br>
+                        <input type="text" id="add-book-title" name="add-book-title"><br>
+                    </div>
+                    <div class="form-div">
+                        <label for="add-book-author">Author:</label><br>
+                        <input type="text" id="add-book-author" name="add-book-author"><br>
+                    </div>
+                    <div class="form-div">
+                        <label for="add-book-pages">Number of pages:</label><br>
+                        <input type="number" id="add-book-pages" name="add-book-pages"><br>
+                    </div> 
+                    <p>Have you read the book?</p>
+                    <div id="radio-buttons" class="form-div"> 
+                        <input type="radio" id="read" name="read-status" value="read" checked="checked">
+                        <label class="radio-label" for="read">Yes</label>
+                        <input type="radio" id="not-read" name="read-status" value="not-read">
+                        <label class="radio-label" for="not-read">No</label><br>
+                    </div>
+                </form>
+                <button type="submit" id="submit-button">Add to the library</button>
+            </div>
         </div>
         <div id="bookshelf">
             <div class="book">
