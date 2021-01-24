@@ -33,12 +33,22 @@ function Book(id, title, author, pages, isRead) {
 }
 
 function addBookToLibrary() {
-    const addBookTitle = document.querySelector('#add-book-title').value;
-    const addBookAuthor = document.querySelector('#add-book-author').value;
-    const addBookPages = document.querySelector('#add-book-pages').value;
+    let addBookTitle = document.querySelector('#add-book-title').value;
+        if(addBookTitle == '') {
+            addBookTitle = 'N/A'
+        }
+    let addBookAuthor = document.querySelector('#add-book-author').value;
+        if(addBookAuthor == '') {
+            addBookAuthor = 'N/A'
+        }
+    let addBookPages = document.querySelector('#add-book-pages').value;
+        if(addBookPages == '') {
+            addBookPages = '0'
+        }
     const isBookRead = document.querySelector('input[type=radio][name=read-status]:checked').value;
     const newBook = new Book(myLibrary.length, addBookTitle, addBookAuthor, addBookPages, isBookRead);
     myLibrary.push(newBook);
+    saveLocalStorage();
 }
 
 
@@ -49,66 +59,66 @@ function displayLibrary(array) {
         book.classList.add('book');
         book.id = array[i].id;
             const bp1 = document.createElement('p');
-            bp1.classList.add('big-p');
-            bp1.textContent = array[i].title;
-            book.appendChild(bp1);
-
             const sp1 = document.createElement('p');
-            sp1.classList.add('small-p');
-            sp1.textContent = 'Title'
-            book.appendChild(sp1);
-
             const bp2 = document.createElement('p');
-            bp2.classList.add('big-p');
-            bp2.textContent = array[i].author;
-            book.appendChild(bp2);
-
             const sp2 = document.createElement('p');
-            sp2.classList.add('small-p');
-            sp2.textContent = 'Author'
-            book.appendChild(sp2);
-
             const bp3 = document.createElement('p');
-            bp3.classList.add('big-p');
-            bp3.textContent = array[i].pages;
-            book.appendChild(bp3);
-
             const sp3 = document.createElement('p');
-            sp3.classList.add('small-p');
-            sp3.textContent = 'Pages'
-            book.appendChild(sp3);
-
             const bookReadButton = document.createElement('button');
-            bookReadButton.classList.add('book-read-button');
-                if(array[i].isRead == 'true'){
-                    bookReadButton.classList.add('book-read');
-                    bookReadButton.textContent = 'Read';
-                } else {
-                    bookReadButton.classList.add('book-not-read');
-                    bookReadButton.textContent = 'Not read yet';
-                }
-                bookReadButton.addEventListener('click', () =>{
-                    if(bookReadButton.textContent === 'Read'){
-                        array[i].isRead = 'false';
-                    } else {
-                        array[i].isRead = 'true';
-                    }
-                    clearDisplay();
-                    displayLibrary(myLibrary);
-                }); //changes isRead value and updates display
-            book.appendChild(bookReadButton);
-
             const deleteBook = document.createElement('button');
-            deleteBook.innerHTML = '<icon class="material-icons">delete</icon>';
+
+            bp1.classList.add('big-p');
+            sp1.classList.add('small-p');
+            bp2.classList.add('big-p');
+            sp2.classList.add('small-p');
+            bp3.classList.add('big-p');
+            sp3.classList.add('small-p');
+            if(array[i].isRead == 'true'){
+                bookReadButton.classList.add('book-read');
+                bookReadButton.textContent = 'Read';
+            } else {
+                bookReadButton.classList.add('book-not-read');
+                bookReadButton.textContent = 'Not read yet';
+            }
             deleteBook.classList.add('delete-book');
-                deleteBook.addEventListener('click', () => {
-                    myLibrary.splice(deleteBook.parentElement.id, 1);
-                    deleteBook.parentElement.remove();
-                    updateID(myLibrary);
-                    clearDisplay();
-                    displayLibrary(myLibrary);
-                }); //removes book from array and updates display
+
+            bp1.textContent = array[i].title;    
+            sp1.textContent = 'Title'
+            bp2.textContent = array[i].author;
+            sp2.textContent = 'Author'
+            bp3.textContent = array[i].pages;
+            sp3.textContent = 'Pages';
+            deleteBook.innerHTML = '<icon class="material-icons">delete</icon>';
+            
+            bookReadButton.addEventListener('click', () =>{
+                if(bookReadButton.textContent === 'Read'){
+                    array[i].isRead = 'false';
+                } else {
+                    array[i].isRead = 'true';
+                }
+                clearDisplay();
+                saveLocalStorage();
+                displayLibrary(myLibrary);
+            }); //changes isRead value and updates display
+
+            deleteBook.addEventListener('click', () => {
+                myLibrary.splice(deleteBook.parentElement.id, 1);
+                deleteBook.parentElement.remove();
+                updateID(myLibrary);
+                clearDisplay();
+                saveLocalStorage();
+                displayLibrary(myLibrary);
+            }); //removes book from array and updates display
+
+            book.appendChild(bp1);
+            book.appendChild(sp1);
+            book.appendChild(bp2);
+            book.appendChild(sp2);
+            book.appendChild(bp3);
+            book.appendChild(sp3);
+            book.appendChild(bookReadButton);    
             book.appendChild(deleteBook);
+
             bookshelf.appendChild(book);
     }
 };
@@ -127,3 +137,15 @@ function updateID(array) {
         }
     }
 }   //updates IDs of books when book is removed
+
+function saveLocalStorage() {
+    localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
+}   //JSON.stringify -> local storage only supports strings
+
+function loadLocalStorage() {
+    myLibrary = JSON.parse(localStorage.getItem("myLibrary"));
+    displayLibrary(myLibrary);
+}
+
+loadLocalStorage();
+
