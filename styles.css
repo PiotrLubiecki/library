@@ -188,12 +188,21 @@ input[type="radio"] {
     margin-bottom: 30px;
 }
 
-.book p {
-    line-height: 34px;
+.big-p {
+    line-height: 30px;
     width: 80%;
     text-align: center;
     margin: 10px;
+    margin-bottom: 5px;
     border-bottom: solid 1px;
+    font-size: 16px;
+}
+
+.small-p {
+    line-height: 10px;
+    border: none;
+    font-size: 10px;
+    margin: 0;
 }
 
 .delete-book {
@@ -203,7 +212,7 @@ input[type="radio"] {
     position: absolute;
     bottom: 0;
     padding-top: 5px;
-    color: white;
+    color: #f3ecb8;
     background-color: #931a25;
     border: solid 1px #931a25;
 }
@@ -213,13 +222,39 @@ input[type="radio"] {
     border: solid 1px #cd0a0a;
 }
 
-p[atribute="book-not-read"] {
-    color: #ec0101;
-    border-color: black;
+.book-not-read {
+    color: #f3ecb8;
+    background-color: #cd0a0a;
+    border: solid 2px #cd0a0a;
+    border-radius: 2em;
+    line-height: 30px;
+    width: 80%;
+    text-align: center;
+    margin: 10px;
+    font-size: 16px;
 }
 
-p[atribute="book-read"] {
-    color: #5aa469;
-    border-color: black;
+.book-not-read:hover {
+    background-color: #ec0101;
+    border: solid 2px #ec0101;
+    font-size: 18px;
+}
+
+.book-read {
+    color: #f3ecb8;
+    background-color: #81b214;
+    border: solid 2px #81b214;
+    border-radius: 2em;
+    line-height: 30px;
+    width: 80%;
+    text-align: center;
+    margin: 10px;
+    font-size: 16px;
+}
+
+.book-read:hover {
+    background-color: #79d70f;
+    border: solid 2px #79d70f;
+    font-size: 18px;
 }
 
